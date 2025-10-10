@@ -9,7 +9,7 @@ dependencies:
   - pandas
   - samtools
   - bowtie2
-  - snpeff
+  - snpeff=5.2
   - scipy
   - ncbi-genome-download
   - biopython

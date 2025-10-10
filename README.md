@@ -1,17 +1,19 @@
 # VITALITY Skin Microbiome Study
 
-This repository contains code associated with the **Vitality Skin Microbiome** study, which investigates host–microbiome interactions in atopic dermatitis, food allergies, and food sensitization.  
+This repository contains code associated with the **VITALITY skin microbiome** study, which investigates host–microbiome interactions in atopic dermatitis, food allergies, and food sensitization.  
 The repository includes scripts for generating figures and codes for microbial genome-wide association studies (mGWAS).
 
 ## 📂 Repository Structure
 
+```text
 VITALITY_skin_atopy/
-├── matsha/ # Core Python package for mGWAS analysis
+├── matsha/ # Python package for mGWAS analysis
 ├── tests/ # Test functions for mGWAS analysis
 ├── manuscript_figures/ # Jupyter notebooks for generating figures in the manuscript
 └── README.md
+```
 
-## Usage of mGWAS pipeline
+## 🍵 Usage of mGWAS pipeline
 
 ### Installation
 
@@ -41,7 +43,7 @@ For full options, run:
 matsha --help
 ```
 
-### 📁 Input Format
+### Input Format
 
 The `input_file.tsv` should be a tab-delimited file with a header row. For **paired-end reads**, the first two columns must be paths to R1 and R2 FASTQ files. For **single-end reads**, only R1 is required. Columns from the third onward can include one or more phenotypes for association testing.
 
@@ -59,7 +61,7 @@ R1                              R2                              disease status  
 /path/to/sample4_R1.fastq.gz    /path/to/sample4_R2.fastq.gz    0            22.8
 ```
 
-### 📁 Outputs
+### Outputs
 After running `matsha`, the following output structure is generated in the specified output directory:
 ```text
 output_dir/
@@ -90,7 +92,7 @@ output_dir/
 | `*/gwas_output_significant.gene.tsv` | Significantly associated genes based on statistical thresholds. |
 | `*/gwas_output_significant.variant.tsv` | Significantly associated variants based on statistical thresholds. |
 
-## 🧪 Testing
+### Testing
 
 To run unit tests using the toy dataset:
 
