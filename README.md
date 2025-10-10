@@ -1,27 +1,26 @@
-# MATSHA
+# VITALITY Skin Microbiome Study
 
-**MATSHA** (Microbial Association with Traits from SHotgun Analysis) is a streamlined command-line tool and Python package for detecting genotype-phenotype associations using shotgun metagenomic data.
+This repository contains code associated with the **Vitality Skin Microbiome** study, which investigates host–microbiome interactions in atopic dermatitis, food allergies, and food sensitization.  
+The repository includes scripts for generating figures and codes for microbial genome-wide association studies (mGWAS).
 
-![Logo](./matsha_logo.png)
+## 📂 Repository Structure
 
-## ✨ Features
+VITALITY_skin_atopy/
+├── matsha/ # Core Python package for mGWAS analysis
+├── tests/ # Test functions for mGWAS analysis
+├── manuscript_figures/ # Jupyter notebooks for generating figures in the manuscript
+└── README.md
 
-- 🔍 Supports both single-end and paired-end reads
-- 📊 Depth-aware subsampling to reduce confounding
-- 🧬 Variant-level and gene-level GWAS
-- 🧪 Tested with toy datasets and CI workflows
-- ✅ Easy to install and use with a clean CLI interface
-
-## 🚀 Quick Start
+## Usage of mGWAS pipeline
 
 ### Installation
 
 ```bash
-git clone https://github.com/skinmicrobiome/matsha.git
-cd matsha
+git clone https://github.com/skinmicrobiome/VITALITY_skin_atopy.git
+cd VITALITY_skin_atopy
 conda env create -f environment.yml
 conda activate matsha_env
-````
+```
 
 Now you can run `matsha` from the command line.
 
@@ -42,7 +41,7 @@ For full options, run:
 matsha --help
 ```
 
-## 📁 Input Format
+### 📁 Input Format
 
 The `input_file.tsv` should be a tab-delimited file with a header row. For **paired-end reads**, the first two columns must be paths to R1 and R2 FASTQ files. For **single-end reads**, only R1 is required. Columns from the third onward can include one or more phenotypes for association testing.
 
@@ -58,9 +57,9 @@ R1                              R2                              disease status  
 /path/to/sample2_R1.fastq.gz    /path/to/sample2_R2.fastq.gz    0            30.1
 /path/to/sample3_R1.fastq.gz    /path/to/sample3_R2.fastq.gz    1            
 /path/to/sample4_R1.fastq.gz    /path/to/sample4_R2.fastq.gz    0            22.8
-````
+```
 
-## 📁 Outputs
+### 📁 Outputs
 After running `matsha`, the following output structure is generated in the specified output directory:
 ```text
 output_dir/
@@ -99,19 +98,6 @@ To run unit tests using the toy dataset:
 pytest
 ```
 
-## 🔧 Development
-
-- CLI implemented using [`click`](https://click.palletsprojects.com/)
-- Modular structure:
-  - `core.py`: main pipeline logic (mapping, coverage, variant calling, etc.)
-  - `utils.py`: helper functions
-  - `gwas.py`: GWAS-specific functions
-- Toy data under `tests/toy_data/` for reproducibility
-
 ## 📝 Citation
 
 Coming soon.
-
-## 📜 License
-
-MIT License © 2025 Zeyang Shen
