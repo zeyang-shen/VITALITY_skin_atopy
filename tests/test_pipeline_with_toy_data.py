@@ -3,7 +3,7 @@ import shutil
 import tempfile
 import pytest
 from click.testing import CliRunner
-from matsha.cli import main
+from mgwas.cli import main
 
 @pytest.fixture
 def toy_data_dir():

@@ -3,7 +3,7 @@ import shutil
 import tempfile
 import pytest
 from unittest.mock import patch, call
-from matsha import core
+from mgwas import core
 
 @pytest.fixture
 def temp_dir():
@@ -130,8 +130,8 @@ def test_map_reads_paired(temp_dir):
     bt2_index = "dummy_index"
     threads = 4
 
-    with patch("matsha.utils.file_exists", return_value=False) as mock_exists, \
-         patch("matsha.utils.run_command") as mock_run:
+    with patch("mgwas.utils.file_exists", return_value=False) as mock_exists, \
+         patch("mgwas.utils.run_command") as mock_run:
 
         core.map_reads(R1_list, R2_list, paired, bt2_index, temp_dir, threads)
 
@@ -153,8 +153,8 @@ def test_map_reads_single(temp_dir):
     bt2_index = "dummy_index"
     threads = 4
 
-    with patch("matsha.utils.file_exists", return_value=False) as mock_exists, \
-         patch("matsha.utils.run_command") as mock_run:
+    with patch("mgwas.utils.file_exists", return_value=False) as mock_exists, \
+         patch("mgwas.utils.run_command") as mock_run:
 
         core.map_reads(R1_list, R2_list, paired, bt2_index, temp_dir, threads)
 
@@ -173,9 +173,9 @@ def test_process_coverage(temp_dir):
     threads = 4
     fake_samfiles = ["sample1.sam"]
 
-    with patch("matsha.utils.list_files_with_extension", return_value=fake_samfiles), \
-         patch("matsha.utils.file_exists", return_value=False), \
-         patch("matsha.utils.run_command") as mock_run:
+    with patch("mgwas.utils.list_files_with_extension", return_value=fake_samfiles), \
+         patch("mgwas.utils.file_exists", return_value=False), \
+         patch("mgwas.utils.run_command") as mock_run:
 
         core.process_coverage(temp_dir, threads)
 
@@ -280,7 +280,7 @@ def test_subsample_bam_files(tmp_path):
         bam_file.touch()
 
     # Mock run_command to prevent actual subprocess call
-    with patch("matsha.utils.run_command") as mock_run_cmd:
+    with patch("mgwas.utils.run_command") as mock_run_cmd:
         bam_list_files = core.subsample_bam_files(
             temp_dir=tmp_path,
             output_dir=output_dir,

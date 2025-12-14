@@ -7,13 +7,13 @@ The repository includes scripts for generating figures and codes for microbial g
 
 ```text
 VITALITY_skin_atopy/
-├── matsha/ # Python package for mGWAS analysis
+├── mgwas/ # Python package for mGWAS analysis
 ├── tests/ # Test functions for mGWAS analysis
 ├── manuscript_figures/ # Jupyter notebooks for generating figures in the manuscript
 └── README.md
 ```
 
-## 🍵 Usage of mGWAS pipeline
+## Usage of mGWAS pipeline
 
 ### Installation
 
@@ -21,26 +21,26 @@ VITALITY_skin_atopy/
 git clone https://github.com/skinmicrobiome/VITALITY_skin_atopy.git
 cd VITALITY_skin_atopy
 conda env create -f environment.yml
-conda activate matsha_env
+conda activate mgwas_env
 ```
 
-Now you can run `matsha` from the command line.
+Now you can run `mgwas` from the command line.
 
 ### Example usage
 
 ```bash
-matsha --input tests/toy_data/input_file.tsv \
-       --genome tests/toy_data/reference.fna \
-       --genbank tests/toy_data/reference.gbff \
-       --output tests/toy_data/output/ \
-       --paired \
-       --threads 4
+mgwas --input tests/toy_data/input_file.tsv \
+      --genome tests/toy_data/reference.fna \
+      --genbank tests/toy_data/reference.gbff \
+      --output tests/toy_data/output/ \
+      --paired \
+      --threads 4
 ```
 
 For full options, run:
 
 ```bash
-matsha --help
+mgwas --help
 ```
 
 ### Input Format
@@ -62,7 +62,7 @@ R1                              R2                              disease status  
 ```
 
 ### Outputs
-After running `matsha`, the following output structure is generated in the specified output directory:
+After running `mgwas`, the following output structure is generated in the specified output directory:
 ```text
 output_dir/
 ├── logfile
@@ -81,7 +81,7 @@ output_dir/
 ```
 | Path | Description |
 |------|-------------|
-| `logfile` | A text file recording the runtime log of `matsha`, including command-line arguments, processing steps, and any warnings or errors. Useful for debugging or reproducibility. |
+| `logfile` | A text file recording the runtime log, including command-line arguments, processing steps, and any warnings or errors. Useful for debugging or reproducibility. |
 | `phenotype_subsampled.txt` | A tab-delimited file listing the phenotypes for which subsampling was performed. Each listed phenotype corresponds to a numbered folder (e.g., `0/`, `1/`, ...). |
 | `all/` | Folder containing results from the full dataset without any subsampling. |
 | `0/`, `1/`, ... | Folders for each subsampled phenotype group listed in `phenotype_subsampled.txt`. Each folder contains results specific to that phenotype. |

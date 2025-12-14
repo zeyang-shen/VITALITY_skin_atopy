@@ -1,7 +1,7 @@
 import click
 import logging
 import os
-from matsha import core, utils, version
+from mgwas import core, utils, version
 
 @click.command()
 @click.option('-i', '--input', 'input_file', type=click.Path(exists=True), required=True,
@@ -35,7 +35,7 @@ from matsha import core, utils, version
               help="Q-value cutoff for calling significant hits")
 @click.option('-t', '--threads', type=int, default=4, show_default=True,
               help="Number of processors to use")
-@click.version_option(version.__version__, '-v', '--version', prog_name='matsha')
+@click.version_option(version.__version__, '-v', '--version', prog_name='mgwas')
 def main(**kwargs):
     # Basic setup
     os.makedirs(kwargs['output'], exist_ok=True)
@@ -56,6 +56,6 @@ def main(**kwargs):
     # Run pipeline
     core.run_pipeline(**kwargs)
     
-    final_message = "🍵 matsha finished successfully! Time to sip your matcha. Cheers! ✨"
+    final_message = "MGWAS finished successfully!"
     logging.info(final_message)
     click.secho(f"\n{final_message}\n", fg="green", bold=True)

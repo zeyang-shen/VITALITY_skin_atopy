@@ -1,4 +1,4 @@
-name: matsha_env
+name: mgwas_env
 channels:
   - defaults
   - conda-forge
@@ -18,4 +18,4 @@ dependencies:
   - pytest
   - pip
   - pip:
-      - -e .  # Install MATSHA in editable mode via pip
+      - -e .  # Install in editable mode via pip

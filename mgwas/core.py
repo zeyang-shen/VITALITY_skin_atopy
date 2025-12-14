@@ -6,7 +6,7 @@ from collections import Counter, defaultdict
 from scipy import stats
 import numpy as np
 import ncbi_genome_download as ngd
-from matsha import utils, gwas
+from mgwas import utils, gwas
 
 def prepare_reference(genome, genbank, temp, threads):
     """Prepare reference genome, annotations, and indices."""

@@ -4,7 +4,7 @@ from scipy import stats
 import numpy as np
 import os
 from collections import Counter, defaultdict
-from matsha import utils
+from mgwas import utils
 
 
 def gwas_correlation(genotype_dct, phenotype_dct, min_maf, min_sample_size):

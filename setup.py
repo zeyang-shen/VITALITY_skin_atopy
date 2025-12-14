@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='matsha',
+    name='mgwas',
     version='0.1.0',
     author='Zeyang Shen',
     author_email='zeyang.shen@wsu.edu',
@@ -14,7 +14,7 @@ setup(
     install_requires=[],
     entry_points={
         'console_scripts': [
-            'matsha=matsha.cli:main',
+            'mgwas=mgwas.cli:main',
         ],
     },
     classifiers=[
